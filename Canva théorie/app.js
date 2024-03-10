@@ -32,8 +32,8 @@ var ctx = canvas.getContext('2d');
 // ctx.arc(75,75,50,0,2*Math.PI);
 // ctx.stroke();
 
-// canvas.width = window.innerWidth;
-// canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
 window.addEventListener('resize', function () {
     canvas.width = window.innerWidth;
@@ -53,6 +53,42 @@ init();
 // canvas.setAttribute('height', '200');
 
 
+var x = 200;
+var v = 5;
+
+function init(){
+    // Save & Restore
+    // ctx.fillRect(0,0,150,150);
+    // ctx.save();
+
+    // ctx.fillStyle="red";
+    // ctx.fillRect(15,15,120,120);
+
+    // ctx.save();
+
+    // ctx.fillStyle="blue";
+    // ctx.fillRect(30,30,90,90);
+
+    // ctx.restore();
+    // ctx.fillRect(45,45,60,60);
+
+    // ctx.translate(50,50),
+    // ctx.fillRect(0,0,100,150);
+
+    requestAnimationFrame(init)
+    ctx.clearRect(0,0,innerWidth,innerHeight);
+    
+    ctx.beginPath();
+    ctx.arc(x, 200,60,0,Math.PI * 2);
+    ctx.strokeStyle = 'crimson';
+    ctx.stroke();
+
+    if(x +  60 > innerWidth || x - 60 < 0){
+        v = - v;
+    }
+
+    x += v;
+}
 
 
 
